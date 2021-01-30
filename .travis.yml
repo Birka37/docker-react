@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t birindocker/frontend-react -f Dockerfile.dev .
+
+script:
+    -  dokcer run birindocker/frontend-react npm run test -- --coverage
